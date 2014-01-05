@@ -13,6 +13,10 @@ XmlListModel {
         isKey: true
     }
     XmlRole {
+        name: "date"
+        query: "pubDate/string()"
+    }
+    XmlRole {
         name: "free"
         query: "ti:freeSpaces/string()"
     }

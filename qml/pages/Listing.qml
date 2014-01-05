@@ -38,13 +38,24 @@ Page {
     property XmlListModel model: null
 
     SilicaListView {
+        anchors.margins: Theme.paddingLarge
         anchors.fill: parent
         model: page.model
+
+        BusyIndicator {
+            anchors.centerIn: parent
+            running: (model.status == XmlListModel.Loading)
+        }
 
         PullDownMenu {
             MenuItem {
                 text: "Refresh"
                 onClicked: model.reload()
+            }
+            Label {
+                text: model.get(0) ? model.get(0).date : ""
+                font.pixelSize: Theme.fontSizeExtraSmall
+                visible: (text !== "")
             }
         }
 
@@ -54,7 +65,6 @@ Page {
 
         delegate: BackgroundItem {
             height: Theme.itemSizeMedium
-            anchors.margins: Theme.paddingMedium
             visible: (total !== "")
 
             Row {
@@ -63,7 +73,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
 
                 Column {
-                    width: 0.8*parent.width
+                    width: 0.75*parent.width
                     Label {
                         id: "name"
                         text: name_and_address.split(" - ")[0]
@@ -77,7 +87,7 @@ Page {
                 }
 
                 Label {
-                    width: 0.2*parent.width
+                    width: 0.25*parent.width
                     anchors.verticalCenter: parent.verticalCenter
                     text: free + " / " + total
                     horizontalAlignment: Text.AlignRight
