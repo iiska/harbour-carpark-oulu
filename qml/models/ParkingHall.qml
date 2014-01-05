@@ -10,7 +10,6 @@ XmlListModel {
     XmlRole {
         name: "name_and_address"
         query: "title/string()"
-        isKey: true
     }
     XmlRole {
         name: "date"
