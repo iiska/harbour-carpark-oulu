@@ -74,6 +74,7 @@ Page {
                 anchors.left: name.right
                 anchors.right: parent.right
                 text: free + " / " + total
+                horizontalAlignment: Text.AlignRight
             }
         }
     }

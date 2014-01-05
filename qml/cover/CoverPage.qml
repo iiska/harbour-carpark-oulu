@@ -32,10 +32,30 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: "My Cover"
+
+    SilicaListView {
+        anchors.fill: parent
+        model: parking
+
+        delegate: BackgroundItem {
+            height: Theme.itemSizeMedium
+            anchors.right: parent.right
+            anchors.left: parent.left
+
+            Label {
+                id: "name"
+                anchors.verticalCenter: parent.verticalCenter
+                text: name_and_address.split(" - ")[0]
+            }
+
+            Label {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: name.right
+                anchors.right: parent.right
+                text: free
+                horizontalAlignment: Text.AlignRight
+            }
+        }
     }
 
     CoverActionList {
@@ -43,6 +63,7 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-cover-refresh"
+            onTriggered: parking.reload()
         }
     }
 }
