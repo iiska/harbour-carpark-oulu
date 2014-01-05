@@ -38,23 +38,32 @@ CoverBackground {
         model: parking
 
         delegate: BackgroundItem {
-            height: Theme.itemSizeMedium
+            height: Theme.itemSizeSmall/2
+            anchors.margins: Theme.paddingSmall
             anchors.right: parent.right
             anchors.left: parent.left
+            visible: (total !== "")
 
-            Label {
-                id: "name"
+            Row {
+                anchors.fill: parent
+                anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                text: name_and_address.split(" - ")[0]
+
+                Label {
+                    width: 0.8*parent.width
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: name_and_address.split(" - ")[0]
+                }
+
+                Label {
+                    width: 0.2*parent.width
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: free
+                    horizontalAlignment: Text.AlignRight
+                }
             }
 
-            Label {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: name.right
-                anchors.right: parent.right
-                text: free
-                horizontalAlignment: Text.AlignRight
-            }
+
         }
     }
 

@@ -54,28 +54,39 @@ Page {
 
         delegate: BackgroundItem {
             height: Theme.itemSizeMedium
-            anchors.right: parent.right
-            anchors.left: parent.left
+            anchors.margins: Theme.paddingMedium
+            visible: (total !== "")
 
-            Label {
-                id: "name"
-                anchors.top: parent.top
-                text: name_and_address.split(" - ")[0]
-            }
-            Label {
-                id: "address"
-                anchors.bottom: parent.bottom
-                text: name_and_address.split(" - ")[1]
-                font.pixelSize: Theme.fontSizeExtraSmall
-            }
-
-            Label {
+            Row {
+                anchors.fill: parent
+                anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.left: name.right
-                anchors.right: parent.right
-                text: free + " / " + total
-                horizontalAlignment: Text.AlignRight
+
+                Column {
+                    width: 0.8*parent.width
+                    Label {
+                        id: "name"
+                        text: name_and_address.split(" - ")[0]
+                    }
+                    Label {
+                        id: "address"
+                        text: name_and_address.split(" - ")[1]
+                        font.pixelSize: Theme.fontSizeExtraSmall
+                    }
+
+                }
+
+                Label {
+                    width: 0.2*parent.width
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: free + " / " + total
+                    horizontalAlignment: Text.AlignRight
+                }
             }
+
+
+
+
         }
     }
 }
