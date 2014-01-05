@@ -14,11 +14,9 @@ SOURCES += src/harbour-carpark-oulu.cpp
 
 OTHER_FILES += qml/harbour-carpark-oulu.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-carpark-oulu.spec \
     rpm/harbour-carpark-oulu.yaml \
     harbour-carpark-oulu.desktop \
     qml/models/ParkingHall.qml \
-    qml/views/ParkingHallView.qml
+    qml/pages/Listing.qml
 

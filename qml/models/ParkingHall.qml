@@ -5,6 +5,8 @@ XmlListModel {
     source: "http://www.oulunliikenne.fi/rss/parking/parking.xml"
     query: "/rss/channel/item"
 
+    namespaceDeclarations: "declare namespace ti = 'http://www.oulunliikenne.fi/xsd/OuluDataInterface.xsd';"
+
     XmlRole {
         name: "name_and_address"
         query: "title/string()"

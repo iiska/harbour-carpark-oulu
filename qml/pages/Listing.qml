@@ -30,50 +30,53 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../models"
-import "../views"
+import QtQuick.XmlListModel 2.0
+
 
 Page {
     id: page
+    property XmlListModel model: null
 
-    ParkingHallView {
+    SilicaListView {
         anchors.fill: parent
-        model: ParkingHall {}
-    }
+        model: page.model
 
-    // To enable PullDownMenu, place our content in a SilicaFlickable
-    /*SilicaFlickable {
-        anchors.fill: parent
-
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
             MenuItem {
-                text: "Show Page 2"
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+                text: "Refresh"
+                onClicked: model.reload()
             }
         }
 
-        // Tell SilicaFlickable the height of its content.
-        contentHeight: column.height
+        header: PageHeader {
+            title: "Free places"
+        }
 
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
-        Column {
-            id: column
+        delegate: BackgroundItem {
+            height: Theme.itemSizeMedium
+            anchors.right: parent.right
+            anchors.left: parent.left
 
-            width: page.width
-            spacing: Theme.paddingLarge
-            PageHeader {
-                title: "UI Template"
+            Label {
+                id: "name"
+                anchors.top: parent.top
+                text: name_and_address.split(" - ")[0]
             }
             Label {
-                x: Theme.paddingLarge
-                text: "Hello Sailors"
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
+                id: "address"
+                anchors.bottom: parent.bottom
+                text: name_and_address.split(" - ")[1]
+                font.pixelSize: Theme.fontSizeExtraSmall
+            }
+
+            Label {
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: name.right
+                anchors.right: parent.right
+                text: free + " / " + total
             }
         }
-    }*/
+    }
 }
 
 
