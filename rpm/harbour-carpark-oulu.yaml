@@ -4,7 +4,7 @@ Version: 0.1
 Release: 1
 Group: Qt/Qt
 URL: http://example.org/
-License: LICENSE
+License: MIT LICENSE
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |-
