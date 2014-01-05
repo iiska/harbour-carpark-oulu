@@ -18,5 +18,7 @@ OTHER_FILES += qml/harbour-carpark-oulu.qml \
     qml/pages/SecondPage.qml \
     rpm/harbour-carpark-oulu.spec \
     rpm/harbour-carpark-oulu.yaml \
-    harbour-carpark-oulu.desktop
+    harbour-carpark-oulu.desktop \
+    qml/models/ParkingHall.qml \
+    qml/views/ParkingHallView.qml
 
