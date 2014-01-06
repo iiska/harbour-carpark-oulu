@@ -38,7 +38,6 @@ Page {
     property XmlListModel model: null
 
     SilicaListView {
-        anchors.margins: Theme.paddingLarge
         anchors.fill: parent
         model: page.model
 
@@ -49,18 +48,13 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: "Refresh"
+                text: qsTr("Refresh")
                 onClicked: model.reload()
-            }
-            Label {
-                text: model.get(0) ? model.get(0).date : ""
-                font.pixelSize: Theme.fontSizeExtraSmall
-                visible: (text !== "")
             }
         }
 
         header: PageHeader {
-            title: "Free places"
+            title: qsTr("Vacant")
         }
 
         delegate: BackgroundItem {
@@ -68,6 +62,7 @@ Page {
             visible: (total !== "")
 
             Row {
+                anchors.margins: Theme.paddingLarge
                 anchors.fill: parent
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -75,11 +70,11 @@ Page {
                 Column {
                     width: 0.75*parent.width
                     Label {
-                        id: "name"
+                        id: name
                         text: name_and_address.split(" - ")[0]
                     }
                     Label {
-                        id: "address"
+                        id: address
                         text: name_and_address.split(" - ")[1]
                         font.pixelSize: Theme.fontSizeExtraSmall
                     }
@@ -93,10 +88,6 @@ Page {
                     horizontalAlignment: Text.AlignRight
                 }
             }
-
-
-
-
         }
     }
 }

@@ -35,11 +35,16 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { Listing {model: parking } }
+    initialPage: Component {
+        Listing {
+            id: listing
+            model: parking
+        }
+    }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
     ParkingHall {
-        id: "parking"
+        id: parking
     }
 }
 

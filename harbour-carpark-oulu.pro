@@ -20,3 +20,4 @@ OTHER_FILES += qml/harbour-carpark-oulu.qml \
     qml/models/ParkingHall.qml \
     qml/pages/Listing.qml
 
+TRANSLATIONS = i18n/translations_fi.ts
