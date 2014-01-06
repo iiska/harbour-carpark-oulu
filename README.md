@@ -6,6 +6,5 @@ City of Oulu available at: http://www.ouka.fi/oulu/oulu-tietoa/avoin-data
 
 ## TODO
 
-- UI Localization
 - Find out if it is possible to open addresses in map application for
   route info
