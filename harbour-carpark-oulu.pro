@@ -21,3 +21,8 @@ OTHER_FILES += qml/harbour-carpark-oulu.qml \
     qml/pages/Listing.qml
 
 TRANSLATIONS = i18n/translations_fi.ts
+
+i18n.path = /usr/share/harbour-carpark-oulu/i18n
+i18n.files = i18n/translations_fi.qm
+
+INSTALLS += i18n
