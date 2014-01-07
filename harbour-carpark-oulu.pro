@@ -18,7 +18,8 @@ OTHER_FILES += qml/harbour-carpark-oulu.qml \
     rpm/harbour-carpark-oulu.yaml \
     harbour-carpark-oulu.desktop \
     qml/models/ParkingHall.qml \
-    qml/pages/Listing.qml
+    qml/pages/Listing.qml \
+    qml/pages/About.qml
 
 TRANSLATIONS = i18n/translations_fi.ts
 
