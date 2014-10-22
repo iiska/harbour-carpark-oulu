@@ -12,7 +12,7 @@ CoverBackground {
             anchors.margins: Theme.paddingSmall
             anchors.right: parent.right
             anchors.left: parent.left
-            visible: (total !== "")
+            visible: (total !== "ei tietoa.")
 
             Row {
                 anchors.fill: parent

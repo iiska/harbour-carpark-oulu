@@ -5,8 +5,6 @@ XmlListModel {
     source: "http://www.oulunliikenne.fi/rss/parking/parking.xml"
     query: "/rss/channel/item"
 
-    namespaceDeclarations: "declare namespace ti = 'http://www.oulunliikenne.fi/xsd/OuluDataInterface.xsd';"
-
     XmlRole {
         name: "name_and_address"
         query: "title/string()"
@@ -15,12 +13,14 @@ XmlListModel {
         name: "date"
         query: "pubDate/string()"
     }
+
+    // <description>Vapaita paikkoja: 60, Paikkoja yhteensä: 150</description>
     XmlRole {
         name: "free"
-        query: "ti:freeSpaces/string()"
+        query: "substring-before(substring-after(description/string(), 'paikkoja: '), ',')"
     }
     XmlRole {
         name: "total"
-        query: "ti:totalSpaces/string()"
+        query: "substring-after(description/string(), 'yhteensä: ')"
     }
 }

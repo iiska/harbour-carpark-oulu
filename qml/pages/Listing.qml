@@ -33,7 +33,7 @@ Page {
 
         delegate: BackgroundItem {
             height: Theme.itemSizeMedium
-            visible: (total !== "")
+            visible: (total !== "ei tietoa.")
 
             Row {
                 anchors.margins: Theme.paddingLarge
